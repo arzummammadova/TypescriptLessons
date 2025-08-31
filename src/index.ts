@@ -97,9 +97,85 @@
 // console.log("Sum is:", summ(2, 3)); // Sum is: 5
 
 //ders2
-let numbers:number[]=[1,2,3,4,5]
+let numbers: number[] = [1, 2, 3, 4, 5]
 console.log(numbers)
 
 
-let strings:string[]=["Arzu","Ayla"]
+let strings: string[] = ["Arzu", "Ayla"]
 console.log(strings)
+
+
+let example: number[] = [1, 4, 5, 9];
+let example2: Array<number> = [1, 3, 8]
+console.log(example2)
+
+
+let user: { name: string, surname: string, isAdmin: true, age: number } = {
+    name: "Arzu",
+    surname: "Mammadova",
+    isAdmin: true,
+    age: 20,
+
+}
+
+interface User {
+    id: number;
+    username: string;
+    email: string;
+    isActive: boolean;
+}
+
+let newUser: User = {
+    id: 1,
+    username: "arzu",
+    email: "arzu@example.com",
+    isActive: true,
+};
+
+function sum(a: number, b: number): number {
+    return a + b
+}
+
+
+
+const multiply = (x: number, y: number): number => {
+    return x ** y
+}
+
+function logUser(user: User): void {
+    console.log(`${user.username},${user.email}`)
+
+}
+
+
+//numbers: number[] və fruits: string[] yarat → konsola çıxar.
+
+let numbers1: number[] = [1, 3, 4, 5, 6, 7, 8, 9]
+console.log(numbers1);
+let numbers2: Array<number> = [2, 4, 5, 6, 7, 8]
+console.log(numbers2)
+
+
+let fruits: string[] = ["alma", "armud"]
+console.log(fruits);
+
+// Book adlı interface yarat:
+interface Book {
+    id: number,
+    title: string,
+    author: string;
+    isPublished: boolean;
+}
+
+let newBook:Book={
+    id:2,
+    title:"salam",
+    author:"slala",
+    isPublished:true,
+}
+
+const addnumbers=(a:number,b:number):number=>{
+    return a+b
+}
+addnumbers(4,5)
+
