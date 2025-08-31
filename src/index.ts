@@ -96,86 +96,137 @@
 
 // console.log("Sum is:", summ(2, 3)); // Sum is: 5
 
-//ders2
-let numbers: number[] = [1, 2, 3, 4, 5]
-console.log(numbers)
+// //ders2
+// let numbers: number[] = [1, 2, 3, 4, 5]
+// console.log(numbers)
 
 
-let strings: string[] = ["Arzu", "Ayla"]
-console.log(strings)
+// let strings: string[] = ["Arzu", "Ayla"]
+// console.log(strings)
 
 
-let example: number[] = [1, 4, 5, 9];
-let example2: Array<number> = [1, 3, 8]
-console.log(example2)
+// let example: number[] = [1, 4, 5, 9];
+// let example2: Array<number> = [1, 3, 8]
+// console.log(example2)
 
 
-let user: { name: string, surname: string, isAdmin: true, age: number } = {
-    name: "Arzu",
-    surname: "Mammadova",
-    isAdmin: true,
-    age: 20,
+// let user: { name: string, surname: string, isAdmin: true, age: number } = {
+//     name: "Arzu",
+//     surname: "Mammadova",
+//     isAdmin: true,
+//     age: 20,
 
+// }
+
+// interface User {
+//     id: number;
+//     username: string;
+//     email: string;
+//     isActive: boolean;
+// }
+
+// let newUser: User = {
+//     id: 1,
+//     username: "arzu",
+//     email: "arzu@example.com",
+//     isActive: true,
+// };
+
+// function sum(a: number, b: number): number {
+//     return a + b
+// }
+
+
+
+// const multiply = (x: number, y: number): number => {
+//     return x ** y
+// }
+
+// function logUser(user: User): void {
+//     console.log(`${user.username},${user.email}`)
+
+// }
+
+
+// //numbers: number[] və fruits: string[] yarat → konsola çıxar.
+
+// let numbers1: number[] = [1, 3, 4, 5, 6, 7, 8, 9]
+// console.log(numbers1);
+// let numbers2: Array<number> = [2, 4, 5, 6, 7, 8]
+// console.log(numbers2)
+
+
+// let fruits: string[] = ["alma", "armud"]
+// console.log(fruits);
+
+// // Book adlı interface yarat:
+// interface Book {
+//     id: number,
+//     title: string,
+//     author: string;
+//     isPublished: boolean;
+// }
+
+// let newBook:Book={
+//     id:2,
+//     title:"salam",
+//     author:"slala",
+//     isPublished:true,
+// }
+
+// const addnumbers=(a:number,b:number):number=>{
+//     return a+b
+// }
+// addnumbers(4,5)
+
+
+
+//? day -3 
+interface Person {
+  id: number;
+  name: string;
+  age?: number; // optional (olsada olar, olmasada)
 }
 
-interface User {
-    id: number;
-    username: string;
-    email: string;
-    isActive: boolean;
+interface Student extends Person {
+  grade: string;
 }
 
-let newUser: User = {
-    id: 1,
-    username: "arzu",
-    email: "arzu@example.com",
-    isActive: true,
-};
-
-function sum(a: number, b: number): number {
-    return a + b
+let student1: Student = {
+  id: 1,
+  name: "Arzu",
+  grade: "A"
 }
 
+//type alias
+type ID=number| string;
+let userid1=123
+let userid2="name"
 
 
-const multiply = (x: number, y: number): number => {
-    return x ** y
-}
-
-function logUser(user: User): void {
-    console.log(`${user.username},${user.email}`)
-
+type Book={
+    id:number,
+    year:number,
 }
 
 
-//numbers: number[] və fruits: string[] yarat → konsola çıxar.
+type Status="active" | "inactive"|"pending";
+let userStatus="active";
+type A={a:number}
+type B={b:string}
+type AB= A&B
+let obj: AB={a:2,b:"salam"}
 
-let numbers1: number[] = [1, 3, 4, 5, 6, 7, 8, 9]
-console.log(numbers1);
-let numbers2: Array<number> = [2, 4, 5, 6, 7, 8]
-console.log(numbers2)
+type AddFn = (a: number, b: number) => number;
+
+const add:AddFn=(x,y)=>x+y;
+console.log(add(2,3));
 
 
-let fruits: string[] = ["alma", "armud"]
-console.log(fruits);
-
-// Book adlı interface yarat:
-interface Book {
-    id: number,
-    title: string,
-    author: string;
-    isPublished: boolean;
-}
-
-let newBook:Book={
-    id:2,
-    title:"salam",
-    author:"slala",
-    isPublished:true,
-}
-
-const addnumbers=(a:number,b:number):number=>{
-    return a+b
-}
-addnumbers(4,5)
-
+// 1. `User` adlı interface yarat:
+//     - `id: number`,
+//     - `username: string`,
+//     - `email: string`,
+//     - `isAdmin?: boolean` (optional).
+// 2. `ResponseStatus` adlı **union type** yarat (`"success" | "error" | "loading"`).
+// 3. `MultiplyFn` adlı function type alias yarat, 2 rəqəmi vurub nəticəni qaytarsın.
