@@ -245,3 +245,38 @@ type MultiplyFn = (a: number, b: number) => number;
 const multiply: MultiplyFn = (x, y) => {
   return x * y;
 };
+
+
+//day 4
+
+
+//union yeni 1 dene deyisen iki type ala bilir
+//meselen
+type id=number| string
+let userId1:id=2033
+let userId2:id="salamei4959i9"
+
+
+
+
+type Statuss="active"|"deactive"|"pending"
+
+function showStatus(status:Statuss){
+  console.log(`status is ${status}`);
+}
+
+showStatus("active")
+
+
+
+
+type Y={a:number}
+type X={b:number}
+type YX=Y&X
+let object:YX={a:5,b:"3200439"}
+
+
+// 1. `ID` üçün union type yaz → həm number, həm string qəbul etsin.
+// 2. `Person` və `Employee` interface-lərini yarat → intersection type ilə `Staff` yarat.
+// 3. `Role` enum yarat → Admin, User, Guest
+// 4. Funksiya yaz → role qəbul etsin və console.log ilə fərqli mesaj göstərsin.
