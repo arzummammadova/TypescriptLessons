@@ -230,3 +230,18 @@ console.log(add(2,3));
 //     - `isAdmin?: boolean` (optional).
 // 2. `ResponseStatus` adlı **union type** yarat (`"success" | "error" | "loading"`).
 // 3. `MultiplyFn` adlı function type alias yarat, 2 rəqəmi vurub nəticəni qaytarsın.
+
+
+interface User{
+  id:number,
+  username:string,
+  email:string,
+  isAdmin?:boolean
+}
+
+type ResponseStatus="success"| "error"|"loading"
+type MultiplyFn = (a: number, b: number) => number;
+
+const multiply: MultiplyFn = (x, y) => {
+  return x * y;
+};
