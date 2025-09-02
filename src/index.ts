@@ -280,3 +280,77 @@ let object:YX={a:5,b:"3200439"}
 // 2. `Person` və `Employee` interface-lərini yarat → intersection type ilə `Staff` yarat.
 // 3. `Role` enum yarat → Admin, User, Guest
 // 4. Funksiya yaz → role qəbul etsin və console.log ilə fərqli mesaj göstərsin.
+
+
+
+//day -5 tekrar bugun ve yeni ders
+function greeter(name:string):string{
+  return name;
+
+}
+greeter("salam")
+
+//types
+//boolean
+
+let isActive:boolean=true
+
+//numbr
+let desc:number=2094034;
+let decimal:number=349039;
+let hex: number = 0xf00d;       // Hexadecimal
+let binary: number = 0b1010;     // Binary
+let octal: number = 0o744;      // Octal
+let float: number = 3.14;      // Floating point
+
+
+//string
+
+let color:string="red"
+let namee:string="Arzu"
+let age:number=20
+let sentence=` my name is ${namee} next year my age will be ${age+1}`;
+
+
+
+//bigint
+// const bigNumber: bigint = 9007199254740991n;
+const array: string[]=["skask","klsei","ewo"]
+array.push("Dylan")
+
+const arr: readonly number[]=[2,4,5,6,6,7]
+
+let ourTuple: [number, boolean, string];
+
+// initialize correctly
+ourTuple = [5, false, 'Coding God was here'];
+
+
+const cars: {name:string,model:string,year:number}={
+  name:"Porche",
+  model:"gt3 rs",
+  year:2024
+
+}
+
+cars.model="911"
+
+
+enum userRole{
+  admin="ADMIN",
+  Editor = "EDITOR",
+  Viewer = "VIEWER"
+
+}
+
+function checkPermission(role:userRole){
+  if(role===userRole.admin){
+    console.log("hello admin")
+  }
+  else if(role===userRole.Editor){
+    console.log("hello edir");
+  }
+  else{
+    console.log("Viewer");
+  }
+}
