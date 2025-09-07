@@ -354,3 +354,172 @@ function checkPermission(role:userRole){
     console.log("Viewer");
   }
 }
+
+
+
+// PaymentStatus yaz: "created" | "processing" | "paid" | "failed". switch ilə render et.
+
+// BaseUser = { id: ID; name: string } və WithRoles = { roles: Role[] } yaz; User = BaseUser & WithRoles et.
+
+// enum HttpCode { Ok = 200, NotFound = 404 } yaz və handle(code) funksiyasında fərqli mesaj ver.
+
+type PaymentStatus="created" | "processing" | "paid" | "failed"
+
+function showPaymentStatus(status: PaymentStatus) {
+  switch (status) {
+    case "created":
+      console.log("Payment has been created but not started yet.");
+      break;
+    case "processing":
+      console.log("Payment is being processed...");
+      break;
+    case "paid":
+      console.log("Payment completed successfully ✅");
+      break;
+    case "failed":
+      console.log("Payment failed ❌");
+      break;
+    default:
+      // TS burada heç vaxt düşməməlidir
+      const _exhaustive: never = status;
+      return _exhaustive;
+  }
+}
+
+showPaymentStatus("created");    // Payment has been created but not started yet.
+showPaymentStatus("processing"); // Payment is being processed...
+showPaymentStatus("paid");       // Payment completed successfully ✅
+showPaymentStatus("failed");     // Payment failed ❌
+
+
+
+//BaseUser = { id: ID; name: string } və WithRoles = { roles: Role[] } yaz; User = BaseUser & WithRoles et.
+
+
+
+//tekrar task
+
+// LoginID adlı union type yaz (string | number).
+// İki dəyişən yarat: biri string, biri number olsun.
+
+type LoginID=string| number;
+
+let lid1="3943";
+let lid2=393;
+
+
+// Person ({ name: string }) və Employee ({ salary: number }) interface-lərini yarat.
+
+
+// Sonra Staff = Person & Employee intersection type yaz və bir obyekt yarat.
+
+
+type Personn=({name:string})
+type Employee=({salary:number})
+type Staff=Personn & Employee
+
+let Staff1:Staff={
+  name:"arzu",
+  salary:2483492,
+}
+
+
+// Role enum yaz (Admin, Editor, Viewer).
+// checkRole funksiyası yaz → role görə fərqli mesaj çıxsın.
+enum Role{
+  admin="admin",
+  editor="editor",
+  viewer="viewer"
+
+}
+
+// function check(role:Role) {
+//   if(role===Role.admin){
+//     console.log("hi admin")
+//   }  
+//   else if()
+//     //bele gedir
+// }
+
+
+//PaymentStatus union type ("created" | "processing" | "paid" | "failed") yaz.
+// renderPayment funksiyası yaz → switch ilə fərqli mesaj ver.
+type PaymentStatus1="created" | "processing" | "paid" | "failed";
+
+function renderPayment1(payment:PaymentStatus) {
+  switch (payment) {
+    case "created":
+      console.log("payment create");
+      
+      break;
+    case "processing":
+      console.log("payment status iscretai");
+  ....
+    default:
+      break;
+  }
+  
+}
+
+// MultiplyFn function type alias yaz → 2 number vurub nəticəni qaytarsın.
+type MultiplyFnn=(a:number,b:number)=>number
+const hasil:MultiplyFn=(x,y)=>x*y
+console.log(hasil(10,3));
+
+
+class Dog {
+  bark() {
+    console.log("Hav hav 🐶");
+  }
+}
+
+class Cat {
+  meow() {
+    console.log("Miyav 🐱");
+  }
+}
+
+function makeSound(animal: Dog | Cat) {
+  if (animal instanceof Dog) {
+    // burda TypeScript bilir ki, bu Dog-dur
+    animal.bark();
+  } else {
+    // burda isə Cat-dir
+    animal.meow();
+  }
+}
+
+makeSound(new Dog()); // Hav hav 🐶
+makeSound(new Cat()); // Miyav 🐱
+
+
+interface Admin {
+  username: string;
+  permissions: string[];
+}
+
+interface User {
+  username: string;
+}
+
+// Bu funksiya TS-yə deyir: əgər true qaytarırsa, deməli "person" = Admin-dir
+function isAdmin(person: User | Admin): person is Admin {
+  return (person as Admin).permissions !== undefined;
+}
+
+function showPanel(person: User | Admin) {
+  if (isAdmin(person)) {
+    console.log("Admin panel: ", person.permissions);
+  } else {
+    console.log("User panel: ", person.username);
+  }
+}
+
+let u1: User = { username: "Arzu" };
+let a1: Admin = { username: "Aynur", permissions: ["read", "write"] };
+
+showPanel(u1); // User panel: Arzu
+showPanel(a1); // Admin panel: ["read","write"]
+
+
+
