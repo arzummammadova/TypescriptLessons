@@ -523,3 +523,108 @@ showPanel(a1); // Admin panel: ["read","write"]
 
 
 
+//day 6
+
+function addnumbers(a:number,b:number):number{
+  return a+b
+}
+
+addnumbers(3,3)
+
+//? Generic
+//any ile yazmaq menasizdir type secury yoxdur
+//generic ona benziyir amma type secutyvar
+
+function identity(value:any):any {
+  return value
+  
+}
+
+identity("salam")
+identity(382939)
+
+// genericdede evveldceden tipi teyin etmirsen
+function identityy<T>(value: T): T {
+  return value;
+}
+
+let a=identityy<string>("salam")
+let b=identityy<number>(3829)
+
+
+function getFirst<T>(arr: T[]): T {
+  return arr[0];
+}
+
+
+let array7=getFirst<number>([29,903,3903])
+let n = getFirst<number>([10, 20, 30]); // number
+
+
+
+interface ApiResponse<T> {
+  status: number;
+  data: T;
+}
+
+
+let userResponse: ApiResponse<{ id: number; name: string }> = {
+  status: 200,
+  data: { id: 1, name: "Arzu" }
+};
+// Divide funksiyası
+
+// Funksiya: divide(a: number, b: number)
+
+// Əgər b = 0 olsa, "Cannot divide by zero" return etsin, yoxsa cəmi qaytarsın.
+
+// // Nümunə çağırışlar:
+// divide(10, 2)  // 5
+// divide(5, 0)   // "Cannot divide by zero"
+
+function divide(a:number,b:number) {
+  if(b===0){
+    console.log("cannoct devide");
+  }
+  else{
+    return a+b
+  }
+  
+}
+divide(10,5)
+divide(5,0)
+
+
+// Identity funksiyası (Generic)
+
+// Funksiya: identity<T>(value: T): T
+
+// string, number, boolean üçün test et.
+
+// identity<string>("Salam") // Salam
+// identity<number>(42)      // 42
+// identity<boolean>(true)   // true
+
+
+function identiti<T>(value:T):T {
+  return value;
+  
+}
+identiti<string>("salam")
+
+// Get Last Element (Generic)
+
+// Funksiya: getLastElement<T>(arr: T[]): T
+
+// Array-in son elementini qaytarsın.
+
+// getLastElement([1,2,3])        // 3
+// getLastElement(["a","b","c"])  // "c"
+
+function getLastElement<T>(arr:T[]): T{
+  return arr[arr.length-1];
+  
+}
+getLastElement<number>([3,2,4,5,5])
+
+
