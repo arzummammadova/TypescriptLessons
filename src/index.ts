@@ -684,3 +684,87 @@ getLastElement<number>([3,2,4,5,5])
 
 //day 7
 // Bu gündə əsas mövzu: Enums və Tuples
+
+
+//enum sabitler toplusudur
+
+enum Role{
+  Admin,
+  User,
+  SuperAdmin
+
+}
+
+let myRole:Role=Role.Admin
+if(myRole===Role.Admin){
+  console.log("welcome admin")
+}
+else{
+  console.log("go away")
+}
+
+
+enum Status2{
+  loading="loading",
+  success="success",
+  error="error"
+}
+
+let statu3s:Status2=Status2.error
+console.log(statu3s)
+
+
+
+//tuple
+
+//array kimidir her type elan edirsen
+
+const user:[number,string]=[1,"salam"]
+console.log(user[0])
+console.log(user[1])
+
+
+type RGB=[number,number,number]
+let color1:RGB=[294,39,0]
+
+
+
+// Role adlı enum yarat → User, Moderator, Admin.
+// Əgər role === Admin olsa, "Welcome Admin" yazdır.
+
+enum Role1{
+  User,
+  Moderator,
+  Admin
+}
+
+let role:Role1=Role1.Admin
+if(role===Role1.Admin){
+  console.log("welcome")
+}
+
+
+
+// Status adlı string enum yarat → "SUCCESS", "ERROR", "PENDING".
+
+// let current: Status = Status.PENDING təyin et və konsola çıxar.
+
+enum Status3{
+  success="success",
+  error="error",
+  pending="pending"
+
+}
+
+let current:Status3=Status3.pending
+console.log(current)
+
+// UserData tuple yarat → [id: number, username: string, isAdmin: boolean]
+
+// Nümunə data doldur və hər sahəni konsola çıxar.
+
+const UserData:[number,string,boolean]=[12029,"arzu",true]
+
+console.log(UserData[0])
+
+
