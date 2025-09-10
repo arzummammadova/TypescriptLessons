@@ -628,3 +628,59 @@ function getLastElement<T>(arr:T[]): T{
 getLastElement<number>([3,2,4,5,5])
 
 
+
+
+
+
+// real layihələrdə çox istifadə olunan yanaşmadır, məsələn: fetch-dən API response gələndə.
+
+// 📝 Task: ApiResponse (Generic Interface)
+// 1️⃣ Interface-i qururuq
+// interface ApiResponse<T> {
+//   status: number;
+//   data: T;
+//   message?: string; // optional
+// }
+
+// 2️⃣ User və Product modelləri
+// interface User {
+//   id: number;
+//   name: string;
+// }
+
+// interface Product {
+//   id: number;
+//   title: string;
+// }
+
+// 3️⃣ İstifadə nümunələri
+// // User response
+// const userResponse: ApiResponse<User> = {
+//   status: 200,
+//   data: { id: 1, name: "Arzu" },
+//   message: "User data fetched successfully"
+// };
+
+// // Product response (array qaytarır)
+// const productResponse: ApiResponse<Product[]> = {
+//   status: 200,
+//   data: [
+//     { id: 1, title: "Laptop" },
+//     { id: 2, title: "Phone" }
+//   ]
+// };
+
+// 4️⃣ Konsolda yoxlama
+// console.log(userResponse.data.name);     // Arzu
+// console.log(productResponse.data[0].title); // Laptop
+
+
+// ✅ Burda ApiResponse<T> generic-dir. T nə verirsən, data o tip olur:
+
+// User → data: User
+
+// Product[] → data: Product[]
+
+
+//day 7
+// Bu gündə əsas mövzu: Enums və Tuples
