@@ -835,3 +835,63 @@ inputt.value="salam"
 
 
 
+//day 9 utility types
+
+// Partial<Type> hamsinin tipini vermesende olar
+
+// Bütün field-ləri optional edir.
+
+interface User{
+  name:string,
+  age:number
+}
+
+let user1:Partial <User>={
+  name:"Arzu"
+}
+
+//required butun fieldleri mecbur edir
+
+let user2:Required<User>={
+  name:"Arzu",
+  age:3940
+}
+
+//readlonly deyismez edir
+
+interface Config{
+  host:string,
+  port:number,
+
+}
+const config:Readonly<Config>={
+  host:"localhost",
+  port:3000
+
+
+}
+
+//gelsem burda 
+// config.host="127.0.0" error
+
+
+//? pick secir mueyyen field
+interface Product{
+  id:number,
+  name:string,
+  type:string,
+  size:string,
+  price:number
+}
+
+let p1: Pick<Product, "id" | "name"> = {
+  id: 1,
+  name: "Laptop",
+};
+
+//omit types
+//pick tersi dir cixartmaq ucun istifade olunur
+// let p2:Omit<Product,"price"|"size">={
+//   type:"comp"
+// ...
+// }
