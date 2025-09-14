@@ -895,3 +895,68 @@ let p1: Pick<Product, "id" | "name"> = {
 //   type:"comp"
 // ...
 // }
+
+
+
+// Book interfeysi yarat → { id: number, title: string, author: string, pages: number }
+interface Book{
+  id:number,
+  title:string,
+  author:string,
+  pages:number
+}
+// Partial<Book> istifadə et → yalnız title ver.
+let book:Partial<Book>={
+  title:"salam"
+}
+
+// Student interfeysi yarat → { id: number, name: string, grade?: number }
+interface Student{
+  id:number,
+  name:string,
+  grade?:number
+}
+
+// Required<Student> yarat və bütün sahələri doldur.
+
+let student:Required<Student>={
+  id:930,
+  name:"arzu",
+  grade:96.07
+}
+// Settings interfeysi yarat → { theme: string, notifications: boolean }
+
+interface Settings {
+theme:string,
+notifications:boolean
+}
+
+// Readonly<Settings> istifadə et və sonradan dəyişməyə çalış.
+
+let settings:Readonly<Settings>={
+  theme:"sala",
+  notifications:true
+}
+// let settings.theme="kjwkw"
+
+// Employee interfeysi yarat → { id: number, name: string, salary: number, department: string }
+interface Employee {
+  id:number,
+  name:string,
+  salary:number,
+  department:string
+}
+
+// Pick<Employee, "id" | "name"> istifadə et.
+
+let Employee:Pick<Employee,"id"| "name">={
+  id:393,
+  name:"arzu"
+}
+
+// Eyni Employee-dən istifadə et → Omit<Employee, "salary"> yaz.
+let Employees:Omit<Employee,"salary">={
+  id:930,
+  // employeeden basqa hamisi
+
+}
