@@ -960,3 +960,55 @@ let Employees:Omit<Employee,"salary">={
   // employeeden basqa hamisi
 
 }
+
+
+// //day 10
+// Car interfeysi yarat → { brand: string, model: string }
+
+interface Car{
+  brand:string,
+  model:string
+}
+
+// Electric interfeysi yarat → { batteryCapacity: number }
+interface Electric {
+  batteryCapacity: number
+}
+
+// ElectricCar adlı intersection type (Car & Electric) yarat və obyekt doldur.
+
+type ElectricCar=Car & Electric
+
+const ElectricInfo:ElectricCar={
+  brand:"Porche",
+  model:"911",
+  batteryCapacity:19338
+}
+
+
+// PaymentStatus union type yarat: "paid" | "pending" | "failed".
+
+type PaymentStatus="paid"|"pending"|"failed"
+
+function processesPayment(status:PaymentStatus) {
+  if(status=="paid"){
+    console.log("payment succesful")
+  }
+  else if(status="pending"){
+    console.log("payment in progress")
+  }
+  else{
+    console.log("failed")
+  }
+  
+}
+
+// processPayment funksiyası yaz → status-u qəbul etsin və:
+
+// "paid" → "Payment successful ✅"
+
+// "pending" → "Payment in progress..."
+
+// "failed" → "Payment failed ❌"
+
+
