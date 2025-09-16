@@ -1012,3 +1012,38 @@ function processesPayment(status:PaymentStatus) {
 // "failed" → "Payment failed ❌"
 
 
+//day 11 function overloading and  advanced functions
+
+// calculate funksiyası overload yaz:
+
+function calculate(a:string,b:string):string
+function calculate(a:number,b:number):number
+function calculate(a:any,b:any):any{
+  return a+b
+}
+calculate(4,5)
+calculate("shut","up")
+
+// Əgər 2 number verilsə, cəmini qaytarsın.
+
+// Əgər 2 string verilsə, birləşdirib qaytarsın.
+
+
+// getItemLength funksiyası yaz:
+
+// Əgər string verilirsə → uzunluğunu qaytarsın.
+
+// Əgər array verilirsə → element sayını qaytarsın.
+
+
+function getItemLength(a:string):number;
+function getItemLength(a:any[]):number;
+
+function getItemLength(a:any){
+  console.log(a.length)
+}
+
+getItemLength("salam")
+getItemLength([3,3,4,5,6])
+
+// logMessages funksiyası yaz → rest parameters istifadə etsin, istədiyin qədər string qəbul etsin və hamısını consola çıxarsın.
