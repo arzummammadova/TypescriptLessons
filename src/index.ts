@@ -1047,3 +1047,107 @@ getItemLength("salam")
 getItemLength([3,3,4,5,6])
 
 // logMessages funksiyası yaz → rest parameters istifadə etsin, istədiyin qədər string qəbul etsin və hamısını consola çıxarsın.
+
+//day 12 cetindir deye day 13 - kecirik )))
+
+//day 13
+
+//intersection types
+
+interface Person{
+  name:string
+}
+
+interface Employee{
+  id:number,
+  department:string
+}
+
+
+type PersonEmployees=Person&Employee
+
+let emplos:PersonEmployees={
+  id:3494,
+  department:"mit",
+  name:"arzu"
+}
+
+
+//type alias
+// type id=string|number
+//interface
+interface Company{
+  title:string
+}
+
+//utility types
+// Partial<T> → bütün sahələri optional edir
+
+// Required<T> → bütün sahələri mütləq edir
+
+// Pick<T, K> → yalnız seçilmiş property-ləri götürür
+
+// Omit<T, K> → seçilmiş property-ləri çıxarır
+
+// Readonly<T> → property-ləri dəyişilməz edir
+
+// Record<K, T> → müəyyən açarları və dəyərləri tip ilə map edir.
+
+// type Grades = "A" | "B" | "C";
+// let gradeRecord: Record<Grades, number> = { A: 90, B: 80, C: 70 };
+
+
+// Exclude<T, U> → T-dən U tipini çıxarır
+
+// Extract<T, U> → T-də U tipini saxlayır
+
+
+// User interface yarat → { id, name, email, age? }
+interface User {
+  id: number;
+  name: string;
+  email: string;
+  age?: number;
+}
+
+
+let UserInfo:Partial<User>={
+  name:"Arzu"
+}
+// Partial<User> yarat və yalnız name ver.
+
+
+
+// Pick<User, "id" | "email"> istifadə et.
+
+let UserPickedInfo:Pick<User,"id"|"email">={
+  id:490,
+  email:"akdjkdj"
+}
+
+// Omit<User, "age"> istifadə et.
+
+let OmitUser:Omit<User,"age">={
+  id:3903,
+  name:"sala",
+  email:"oep"
+
+
+}
+
+// Grades union type → "A" | "B" | "C" | "D"
+
+type Grades="A"|"B"|"C"|"D"
+
+// Record<Grades, string> istifadə edərək hər grade üçün mesaj ver.
+
+
+let gradeMessages: Record<Grades, string> = {
+  A: "Excellent! 🎉",
+  B: "Good job! 👍",
+  C: "Keep trying! 🙂",
+  D: "Needs improvement 😅"
+};
+
+console.log(gradeMessages.A); // Excellent! 🎉
+console.log(gradeMessages.D); // Needs improvement 😅
